@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { CountryList } from "./components/country/CountryList";
+import { Currency } from "./components/currency/Currency";
+import { Airports } from "./components/airports/Airports";
 
 export const Home = () => {
   const [selectedCountry, setSelectedCountry] = useState(null);
@@ -10,8 +12,12 @@ export const Home = () => {
     <div className="app">
       <CountryList />
       <div className="paragraph">
-        <p className="mr-40"> CURRENCY EXCHANGE </p>
-        <p> AIRPORTS </p>
+        <h5 className="mr-40">
+          <Currency />
+        </h5>
+        <h5>
+          <Airports />
+        </h5>
       </div>
     </div>
   );
