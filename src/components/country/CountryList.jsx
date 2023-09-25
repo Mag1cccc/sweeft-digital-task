@@ -2,14 +2,12 @@ import { useQuery } from "@tanstack/react-query";
 import Axios from "axios";
 import { useFetchData } from "../../hooks/useFetchData";
 import "./country.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export const CountryList = () => {
   const apiEndPoint = "https://restcountries.com/v3.1/all";
 
   const { data: initialData, isLoading, isError } = useFetchData(apiEndPoint);
-
-  console.log("Initial Data:", initialData);
 
   const [selectedCountry, setSelectedCountry] = useState(null);
 
@@ -28,8 +26,6 @@ export const CountryList = () => {
   if (isError) {
     return <p>Error fetching data or no data available</p>;
   }
-
-  console.log("Selected Country:", selectedCountry);
 
   const cur = selectedCountry?.currencies;
 
@@ -93,7 +89,9 @@ export const CountryList = () => {
             </div>
           </div>
         </div>
-      ) : <div className="country">  </div> } 
+      ) : (
+        <div className="country"> </div>
+      )}
     </>
   );
 };

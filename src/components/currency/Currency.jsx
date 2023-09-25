@@ -1,12 +1,10 @@
 import { useFetchData } from "../../hooks/useFetchData";
-import "./currency.css"
+import "./currency.css";
 
 export const Currency = () => {
   const apiEndPoint = "https://api.exchangerate.host/latest";
 
   const { data: initialData, isLoading, isError } = useFetchData(apiEndPoint);
-
-  console.log(initialData);
 
   if (isLoading) {
     return <p> Loading... </p>;
